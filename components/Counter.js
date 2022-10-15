@@ -3,21 +3,37 @@ export function Counter() {
   const [count, setCount] = useState(0);
 
   function decreminting() {
-    setCount(count - 1);
+    setCount((prev) => {
+      //console.log(prev);
+      return prev - 1;
+    });
   }
 
   function increminting() {
-    setCount(count + 1);
+    setCount((prev) => {
+      //console.log(prev);
+      return prev + 1;
+    });
   }
   return (
     <>
-      <div>
-        <h1>Counter</h1>
+      <div className="container">
+        <h3>Counter</h3>
         <button onClick={increminting}>+</button>
         <span> {count}</span>
         <button onClick={decreminting}>-</button>
       </div>
       <style jsx>{`
+        .container {
+          width: 400px;
+          height: 250px;
+          padding: 15px 32px;
+          border-radius: 10px;
+          background-color: #d8d8d8;
+          text-align: center;
+          font-size: 30px;
+          margin: auto;
+        }
         button {
           background-color: #4caf50;
           border: none;
